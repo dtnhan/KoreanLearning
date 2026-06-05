@@ -1,7 +1,6 @@
 import streamlit as st
 import base64
 from pathlib import Path
-import streamlit.components.v1 as components
 
 # from gtts import gTTS
 # from io import BytesIO
@@ -31,7 +30,7 @@ def apply_theme():
                 background-color: #f2f2f2;
             }
             audio {
-                width: 200px;
+                width: 100px;
                 height: 30px;
             }
             .positive {background-color: #d4edda; border-left: 5px solid #28a745;}
@@ -114,43 +113,95 @@ with tab1:
         <tr>
             <td><strong>{row['Từ vựng']}</strong></td>
             <td>{row['Nghĩa']}</td>
-            <td class=\"audio-cell\"><audio controls src=\"{audio_uri}\"></audio></td>
+            <td class=\"audio-cell\"><button class=\"play-btn\" data-src=\"{audio_uri}\">▶</button></td>
         </tr>
         """
 
     table_html = f"""
     <div style=\"overflow-x:auto; width:100%;\">
-        <table style=\"width:100%; border-collapse: collapse; min-width: 600px;\">
+        <style>
+            table tr td {{
+                padding: 12px;
+                border: 1px solid #ddd;
+                vertical-align: middle;
+            }}
+            table tr th {{
+                padding: 12px;
+                border: 1px solid #ddd;
+                background: #f2f2f2;
+                font-weight: bold;
+            }}
+            .audio-cell .play-btn {{
+                font-size: 10px;
+                padding: 8px 12px;
+                border-radius: 6px;
+                border: none;
+                background: #007bff;
+                color: white;
+                cursor: pointer;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-width: 22px;
+            }}
+            .audio-cell .play-btn.playing {{
+                background: #28a745;
+            }}
+            @media (max-width: 720px) {{
+                table {{ min-width: 300px; }}
+                .audio-cell .play-btn {{
+                    font-size: 10px;
+                    min-width: 22px;
+                    padding: 8px 12px;
+                }}
+            }}
+        </style>
+
+        <table style=\"width:100%; border-collapse: collapse; min-width: 300px;\">
             <thead>
-                <tr style=\"background:#f2f2f2;\">
-                    <th style=\"padding:12px; text-align:left; border:1px solid #ddd;\">Từ vựng</th>
-                    <th style=\"padding:12px; text-align:left; border:1px solid #ddd;\">Nghĩa</th>
-                    <th style=\"padding:12px; text-align:left; border:1px solid #ddd;\">Audio</th>
+                <tr>
+                    <th>Từ vựng</th>
+                    <th>Nghĩa</th>
+                    <th>Audio</th>
                 </tr>
             </thead>
             <tbody>
                 {table_rows}
             </tbody>
         </table>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {{
+                const buttons = document.querySelectorAll('.play-btn');
+                let currentAudio = null;
+                let currentBtn = null;
+                buttons.forEach(btn => {{
+                    btn.addEventListener('click', function() {{
+                        const src = btn.getAttribute('data-src');
+                        if (currentAudio && !currentAudio.paused && currentAudio.src === src) {{
+                            currentAudio.pause();
+                            btn.classList.remove('playing');
+                            return;
+                        }}
+                        if (currentAudio) {{
+                            currentAudio.pause();
+                            if (currentBtn) currentBtn.classList.remove('playing');
+                        }}
+                        const audio = new Audio(src);
+                        currentAudio = audio;
+                        currentBtn = btn;
+                        btn.classList.add('playing');
+                        audio.play().catch(() => {{ btn.classList.remove('playing'); }});
+                        audio.addEventListener('ended', function() {{ btn.classList.remove('playing'); }});
+                        audio.addEventListener('pause', function() {{ btn.classList.remove('playing'); }});
+                    }});
+                }});
+            }});
+        </script>
     </div>
-    <style>
-        table tr td {{
-            padding: 12px;
-            border: 1px solid #ddd;
-            vertical-align: middle;
-        }}
-        .audio-cell audio {{
-            width: 100%;
-            max-width: 260px;
-            height: 34px;
-        }}
-        @media (max-width: 720px) {{
-            table {{ min-width: 520px; }}
-        }}
-    </style>
     """
 
-    components.html(table_html, height=len(rows) * 65, scrolling=True)
+    st.iframe(table_html, height=len(rows) * 65)
 
     st.markdown("""
     - **Từ vựng**:
