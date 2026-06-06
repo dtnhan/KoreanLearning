@@ -146,11 +146,7 @@ with tab1:
         {"Từ vựng": "안녕히 가세요", "Nghĩa": "Tạm biệt, đi về bình an", "audio": "Files/Lesson1/tambiet1.mp3"},
         {"Từ vựng": "안녕히 계세요", "Nghĩa": "Tạm biệt, ở lại bình an", "audio": "Files/Lesson1/tambiet2.mp3"},
         {"Từ vựng": "처음 뵙겠습니다", "Nghĩa": "Rất hân hạnh được gặp bạn", "audio": "Files/Lesson1/rathanhanh.mp3"},
-        {"Từ vựng": "반갑습니다", "Nghĩa": "Rất vui được gặp bạn", "audio": "Files/Lesson1/ratvuigapban.mp3"},
-        {"Từ vựng": "안녕히 가세요", "Nghĩa": "Tạm biệt, đi về bình an", "audio": "Files/Lesson1/tambiet1.mp3"},
-        {"Từ vựng": "안녕히 가세요", "Nghĩa": "Tạm biệt, đi về bình an", "audio": "Files/Lesson1/tambiet1.mp3"},
-        {"Từ vựng": "안녕히 가세요", "Nghĩa": "Tạm biệt, đi về bình an", "audio": "Files/Lesson1/tambiet1.mp3"},
-        {"Từ vựng": "안녕히 가세요", "Nghĩa": "Tạm biệt, đi về bình an", "audio": "Files/Lesson1/tambiet1.mp3"},
+        {"Từ vựng": "반갑습니다", "Nghĩa": "Rất vui được gặp bạn", "audio": "Files/Lesson1/ratvuigapban.mp3"}
     ]
 
     root = Path(__file__).resolve().parent
