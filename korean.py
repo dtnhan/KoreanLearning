@@ -309,7 +309,7 @@ with tab1:
     st.markdown('''- **한국 사람입니까?** - Bạn là người Hàn Quốc phải không?''')
     st.audio(root / "Files/Lesson1/lahqpk.mp3", format="audio/mp3")
     st.divider()
-    st.markdown('''- **제 이름은 흐영입니다** - Tên tôi là Hương''')
+    st.markdown('''- **제 이름은 흐엉입니다** - Tên tôi là Hương''')
     st.audio(root / "Files/Lesson1/huong.mp3", format="audio/mp3")
     st.markdown('''- **선생님은 한국 사람입니까?** - Giáo viên là người Hàn Quốc phải không?''')
     st.audio(root / "Files/Lesson1/gvhq.mp3", format="audio/mp3")
@@ -638,6 +638,377 @@ with tab2:
     Đây là công ty Việt Nam. Ở đây có văn phòng. Có nhiều máy tính. Có bàn làm việc. Không có nhà ăn.''')
     st.audio(root / "Files/Lesson2/vidu36.mp3", format="audio/mp3")
     
+with tab3:
+    st.header("Bài 3: Sinh hoạt hàng ngày")
+    st.markdown('### Từ vựng')
+
+    # --- Define data (data layer) ---
+    rows = [
+        {"Từ vựng": "가다", "Nghĩa": "Đi", "audio": "Files/Lesson3/go.mp3"},
+        {"Từ vựng": "갑니다", "Nghĩa": "Đi", "audio": "Files/Lesson3/go1.mp3"},
+
+        {"Từ vựng": "오다", "Nghĩa": "Đến", "audio": "Files/Lesson3/arrive.mp3"},
+        {"Từ vựng": "옵니다", "Nghĩa": "Đến", "audio": "Files/Lesson3/arrive1.mp3"},
+
+        {"Từ vựng": "자다", "Nghĩa": "Ngủ", "audio": "Files/Lesson3/sleep.mp3"},
+        {"Từ vựng": "잡니다", "Nghĩa": "Ngủ", "audio": "Files/Lesson3/sleep1.mp3"},
+
+        {"Từ vựng": "먹다", "Nghĩa": "Ăn", "audio": "Files/Lesson3/eat.mp3"},
+        {"Từ vựng": "먹습니다", "Nghĩa": "Ăn", "audio": "Files/Lesson3/eat1.mp3"},
+
+        {"Từ vựng": "마시다", "Nghĩa": "Uống", "audio": "Files/Lesson3/drink.mp3"},
+        {"Từ vựng": "마십니다", "Nghĩa": "Uống", "audio": "Files/Lesson3/drink1.mp3"},
+
+        {"Từ vựng": "이야기하다", "Nghĩa": "Kể chuyện", "audio": "Files/Lesson3/tell_story.mp3"},
+        {"Từ vựng": "이야기합니다", "Nghĩa": "Kể chuyện", "audio": "Files/Lesson3/tell_story1.mp3"},
+
+        {"Từ vựng": "읽다", "Nghĩa": "Đọc", "audio": "Files/Lesson3/read.mp3"},
+        {"Từ vựng": "읽습니다", "Nghĩa": "Đọc", "audio": "Files/Lesson3/read1.mp3"},
+
+        {"Từ vựng": "듣다", "Nghĩa": "Nghe", "audio": "Files/Lesson3/listen.mp3"},
+        {"Từ vựng": "듣습니다", "Nghĩa": "Nghe", "audio": "Files/Lesson3/listen1.mp3"},
+
+        {"Từ vựng": "보다", "Nghĩa": "Xem", "audio": "Files/Lesson3/see.mp3"},
+        {"Từ vựng": "봅니다", "Nghĩa": "Xem", "audio": "Files/Lesson3/see1.mp3"},
+
+        {"Từ vựng": "일하다", "Nghĩa": "Làm việc", "audio": "Files/Lesson3/work.mp3"},
+        {"Từ vựng": "일합니다", "Nghĩa": "Làm việc", "audio": "Files/Lesson3/work1.mp3"},
+
+        {"Từ vựng": "공부하다", "Nghĩa": "Học", "audio": "Files/Lesson3/study.mp3"},
+        {"Từ vựng": "공부합니다", "Nghĩa": "Học", "audio": "Files/Lesson3/study1.mp3"},
+
+        {"Từ vựng": "운동하다", "Nghĩa": "Luyện tập thể dục", "audio": "Files/Lesson3/exercise.mp3"},
+        {"Từ vựng": "운동합니다", "Nghĩa": "Luyện tập thể dục", "audio": "Files/Lesson3/exercise1.mp3"},
+
+        {"Từ vựng": "쉬다", "Nghĩa": "Nghỉ ngơi", "audio": "Files/Lesson3/rest.mp3"},
+        {"Từ vựng": "쉽니다", "Nghĩa": "Nghỉ ngơi", "audio": "Files/Lesson3/rest1.mp3"},
+
+        {"Từ vựng": "만나다", "Nghĩa": "Gặp gỡ", "audio": "Files/Lesson3/meet.mp3"},
+        {"Từ vựng": "만납니다", "Nghĩa": "Gặp gỡ", "audio": "Files/Lesson3/meet1.mp3"},
+
+        {"Từ vựng": "사다", "Nghĩa": "Mua", "audio": "Files/Lesson3/buy.mp3"},
+        {"Từ vựng": "삽니다", "Nghĩa": "Mua", "audio": "Files/Lesson3/buy1.mp3"},
+
+        {"Từ vựng": "좋아하다", "Nghĩa": "Thích", "audio": "Files/Lesson3/like.mp3"},
+        {"Từ vựng": "좋아합니다", "Nghĩa": "Thích", "audio": "Files/Lesson3/like1.mp3"},
+
+        {"Từ vựng": "크다", "Nghĩa": "To, lớn", "audio": "Files/Lesson3/big.mp3"},
+        {"Từ vựng": "큽니다", "Nghĩa": "To, lớn", "audio": "Files/Lesson3/big1.mp3"},
+
+        {"Từ vựng": "작다", "Nghĩa": "Nhỏ", "audio": "Files/Lesson3/small.mp3"},
+        {"Từ vựng": "작습니다", "Nghĩa": "Nhỏ", "audio": "Files/Lesson3/small1.mp3"},
+
+        {"Từ vựng": "많다", "Nghĩa": "Nhiều", "audio": "Files/Lesson3/many.mp3"},
+        {"Từ vựng": "많습니다", "Nghĩa": "Nhiều", "audio": "Files/Lesson3/many1.mp3"},
+
+        {"Từ vựng": "적다", "Nghĩa": "Ít", "audio": "Files/Lesson3/few.mp3"},
+        {"Từ vựng": "적습니다", "Nghĩa": "Ít", "audio": "Files/Lesson3/few1.mp3"},
+
+        {"Từ vựng": "좋다", "Nghĩa": "Tốt", "audio": "Files/Lesson3/good.mp3"},
+        {"Từ vựng": "좋습니다", "Nghĩa": "Tốt", "audio": "Files/Lesson3/good1.mp3"},
+
+        {"Từ vựng": "나쁘다", "Nghĩa": "Xấu", "audio": "Files/Lesson3/bad.mp3"},
+        {"Từ vựng": "나쁩니다", "Nghĩa": "Xấu", "audio": "Files/Lesson3/bad1.mp3"},
+
+        {"Từ vựng": "재미있다", "Nghĩa": "Thú vị", "audio": "Files/Lesson3/really_fun.mp3"},
+        {"Từ vựng": "재미있습니다", "Nghĩa": "Thú vị", "audio": "Files/Lesson3/really_fun1.mp3"},
+
+        {"Từ vựng": "재미없다", "Nghĩa": "Không thú vị", "audio": "Files/Lesson3/not_fun.mp3"},
+        {"Từ vựng": "재미없습니다", "Nghĩa": "Không thú vị", "audio": "Files/Lesson3/not_fun1.mp3"},
+
+        {"Từ vựng": "차", "Nghĩa": "Trà", "audio": "Files/Lesson3/tea.mp3"},
+        {"Từ vựng": "영화", "Nghĩa": "Phim ảnh", "audio": "Files/Lesson3/movie.mp3"},
+        {"Từ vựng": "음악", "Nghĩa": "Âm nhạc", "audio": "Files/Lesson3/music.mp3"},
+        {"Từ vựng": "신문", "Nghĩa": "Tạp chí", "audio": "Files/Lesson3/newspaper.mp3"},
+        {"Từ vựng": "친구", "Nghĩa": "Bạn bè", "audio": "Files/Lesson3/friend.mp3"},
+
+        {"Từ vựng": "누구", "Nghĩa": "Ai (tân ngữ)", "audio": "Files/Lesson3/nugu.mp3"},
+        {"Từ vựng": "누가", "Nghĩa": "Ai (chủ ngữ)", "audio": "Files/Lesson3/nuga.mp3"},
+        {"Từ vựng": "언제", "Nghĩa": "Khi nào", "audio": "Files/Lesson3/when.mp3"},
+
+        {"Từ vựng": "공원", "Nghĩa": "Công viên", "audio": "Files/Lesson3/park.mp3"},
+        {"Từ vựng": "노래", "Nghĩa": "Bài hát", "audio": "Files/Lesson3/song.mp3"},
+        {"Từ vựng": "대한빌딩", "Nghĩa": "Tòa nhà Hàn Quốc", "audio": "Files/Lesson3/building.mp3"},
+        {"Từ vựng": "방", "Nghĩa": "Phòng", "audio": "Files/Lesson3/room.mp3"},
+
+        {"Từ vựng": "산책하다", "Nghĩa": "Đi dạo", "audio": "Files/Lesson3/walk.mp3"},
+        {"Từ vựng": "쇼핑하다", "Nghĩa": "Đi mua sắm", "audio": "Files/Lesson3/shopping.mp3"},
+
+        {"Từ vựng": "시내", "Nghĩa": "Nội thành", "audio": "Files/Lesson3/urban.mp3"},
+        {"Từ vựng": "시장", "Nghĩa": "Chợ", "audio": "Files/Lesson3/market.mp3"},
+        {"Từ vựng": "식사하다", "Nghĩa": "Ăn uống", "audio": "Files/Lesson3/eatdrink.mp3"},
+        {"Từ vựng": "아이스크림", "Nghĩa": "Kem", "audio": "Files/Lesson3/ice_cream.mp3"},
+        {"Từ vựng": "아주", "Nghĩa": "Rất", "audio": "Files/Lesson3/very.mp3"},
+        {"Từ vựng": "여행", "Nghĩa": "Du lịch", "audio": "Files/Lesson3/travel.mp3"},
+        {"Từ vựng": "이메일", "Nghĩa": "Email", "audio": "Files/Lesson3/email.mp3"},
+        {"Từ vựng": "위", "Nghĩa": "Trên", "audio": "Files/Lesson3/above.mp3"},
+        {"Từ vựng": "전화하다", "Nghĩa": "Gọi điện", "audio": "Files/Lesson3/phone.mp3"},
+        {"Từ vựng": "지금", "Nghĩa": "Bây giờ", "audio": "Files/Lesson3/now.mp3"},
+        {"Từ vựng": "축구를 하다", "Nghĩa": "Chơi bóng đá", "audio": "Files/Lesson3/soccer.mp3"},
+        {"Từ vựng": "카페", "Nghĩa": "Quán cà phê", "audio": "Files/Lesson3/cafe.mp3"},
+        {"Từ vựng": "헬스클럽", "Nghĩa": "Gym", "audio": "Files/Lesson3/fitness_club.mp3"},
+        {"Từ vựng": "그리고", "Nghĩa": "Và", "audio": "Files/Lesson3/and.mp3"},
+        {"Từ vựng": "구두", "Nghĩa": "Giày", "audio": "Files/Lesson3/shoes.mp3"},
+        {"Từ vựng": "자주", "Nghĩa": "Thường xuyên", "audio": "Files/Lesson3/often.mp3"},
+        {"Từ vựng": "스업하다", "Nghĩa": "Có buổi học", "audio": "Files/Lesson3/has_class.mp3"}
+
+
+        
+    ]
+
+    root = Path(__file__).resolve().parent
+
+    def audio_to_data_uri(path: str) -> str:
+        file_path = root / path
+        with open(file_path, "rb") as f:
+            data = f.read()
+        encoded = base64.b64encode(data).decode()
+        return f"data:audio/mp3;base64,{encoded}"
+
+    table_rows = ""
+    for row in rows:
+        audio_uri = audio_to_data_uri(row["audio"])
+        table_rows += f"""
+        <tr>
+            <td><strong>{row['Từ vựng']}</strong></td>
+            <td>{row['Nghĩa']}</td>
+            <td class=\"audio-cell\"><button class=\"play-btn\" data-src=\"{audio_uri}\">▶</button></td>
+        </tr>
+        """
+
+    table_html = f"""
+    <div style=\"overflow-x:auto; width:100%;\">
+        <style>
+            table tr td {{
+                padding: 12px;
+                border: 1px solid #ddd;
+                vertical-align: middle;
+            }}
+            table tr th {{
+                padding: 12px;
+                border: 1px solid #ddd;
+                background: #f2f2f2;
+                font-weight: bold;
+            }}
+            .audio-cell .play-btn {{
+                font-size: 10px;
+                padding: 8px 12px;
+                border-radius: 6px;
+                border: none;
+                background: #007bff;
+                color: white;
+                cursor: pointer;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-width: 22px;
+            }}
+            .audio-cell .play-btn.playing {{
+                background: #28a745;
+            }}
+            @media (max-width: 720px) {{
+                table {{ min-width: 300px; }}
+                .audio-cell .play-btn {{
+                    font-size: 10px;
+                    min-width: 22px;
+                    padding: 8px 12px;
+                }}
+            }}
+        </style>
+
+        <table style=\"width:100%; border-collapse: collapse; min-width: 300px;\">
+            <thead>
+                <tr>
+                    <th>Từ vựng</th>
+                    <th>Nghĩa</th>
+                    <th>Audio</th>
+                </tr>
+            </thead>
+            <tbody>
+                {table_rows}
+            </tbody>
+        </table>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {{
+                const buttons = document.querySelectorAll('.play-btn');
+                let currentAudio = null;
+                let currentBtn = null;
+                buttons.forEach(btn => {{
+                    btn.addEventListener('click', function() {{
+                        const src = btn.getAttribute('data-src');
+                        if (currentAudio && !currentAudio.paused && currentAudio.src === src) {{
+                            currentAudio.pause();
+                            btn.classList.remove('playing');
+                            return;
+                        }}
+                        if (currentAudio) {{
+                            currentAudio.pause();
+                            if (currentBtn) currentBtn.classList.remove('playing');
+                        }}
+                        const audio = new Audio(src);
+                        currentAudio = audio;
+                        currentBtn = btn;
+                        btn.classList.add('playing');
+                        audio.play().catch(() => {{ btn.classList.remove('playing'); }});
+                        audio.addEventListener('ended', function() {{ btn.classList.remove('playing'); }});
+                        audio.addEventListener('pause', function() {{ btn.classList.remove('playing'); }});
+                    }});
+                }});
+            }});
+        </script>
+    </div>
+    """
+
+    st.iframe(table_html, height=len(rows) * 56)
+
+
+
+    st.markdown('### Ngữ pháp')
+    st.markdown(
+        "**1.** <span style=' font-size: 20px; font-weight: bold;'> V/A + :red[ㅂ]/:blue[습] + 니다/니까?</span>"
+        "<span style='color: #555; font-size: 16px;'>: Đuôi kết thúc câu trần thuật, nếu V/A không có patchim thì dùng :red[ㅂ], nếu có patchim thì dùng :blue[습] </span>.",
+        # "<span style='font-family: Courier; background-color: #f0f2f6; padding: 2px 6px;'>: là cái gì</span>.", 
+        unsafe_allow_html=True
+    )
+    st.markdown('''**Ví dụ:** ''')
+    st.markdown('''- **유진 씨가 잡니다** - Yujin đang ngủ''')
+    st.audio(root / "Files/Lesson3/vidu1.mp3", format="audio/mp3")
+    st.markdown('''- **학생이 공부합니다** - Học sinh đang học''')
+    st.audio(root / "Files/Lesson3/vidu2.mp3", format="audio/mp3")
+    st.markdown('''- **친구가 이야기합니다** - Bạn bè đang kể chuyện''')
+    st.audio(root / "Files/Lesson3/vidu3.mp3", format="audio/mp3")
+    st.markdown('''- **가방이 작습니다** - Cái cặp sách nhỏ''')
+    st.audio(root / "Files/Lesson3/vidu4.mp3", format="audio/mp3")
+    st.markdown('''- **이 영화는 재미있습니다** - Bộ phim này thú vị''')
+    st.audio(root / "Files/Lesson3/vidu5.mp3", format="audio/mp3")
+    st.markdown('''- **이 백화점이 아주 큽니다** - Trung tâm thương mại này rất lớn''')
+    st.audio(root / "Files/Lesson3/vidu6.mp3", format="audio/mp3")
+
+    st.markdown('''- **지원 씨가 일합니까?** - Ji-won có làm việc không?''')
+    st.audio(root / "Files/Lesson3/vidu7.mp3", format="audio/mp3")
+    st.markdown('''- **네, 지원 씨가 일합니다** - Vâng, Ji-won làm việc''')
+    st.audio(root / "Files/Lesson3/vidu8.mp3", format="audio/mp3")
+    st.markdown('''- **오토바이가 좋습니까?** - Xe máy có tốt không?''')
+    st.audio(root / "Files/Lesson3/vidu9.mp3", format="audio/mp3")
+    st.markdown('''- **네, 오토바이가 좋습니다** - Vâng, xe máy tốt''')
+    st.audio(root / "Files/Lesson3/vidu10.mp3", format="audio/mp3")
+
+    st.divider()
+    st.markdown(
+        "**2.** <span style=' font-size: 20px; font-weight: bold;'> N (:red[patchim]/:blue[không patchim]) + :red[을]/:blue[를]</span>"
+        "<span style='color: #555; font-size: 16px;'>: Tiểu từ chỉ tân ngữ</span>.",
+        # "<span style='font-family: Courier; background-color: #f0f2f6; padding: 2px 6px;'>: là cái gì</span>.", 
+        unsafe_allow_html=True
+    )
+    st.markdown('''**Ví dụ:** ''')
+    st.markdown('''- **책을 읽습니다** - Đọc sách''')
+    st.audio(root / "Files/Lesson3/vidu11.mp3", format="audio/mp3")
+    st.markdown('''- **음악을 듣습니다** - Nghe nhạc''')
+    st.audio(root / "Files/Lesson3/vidu12.mp3", format="audio/mp3")
+    st.markdown('''- **영화를 봅니다** - Xem phim''')   
+    st.audio(root / "Files/Lesson3/vidu13.mp3", format="audio/mp3")
+    st.markdown('''- **저는 친구를 만납니다** - Tôi gặp bạn bè''')
+    st.audio(root / "Files/Lesson3/vidu14.mp3", format="audio/mp3")
+    st.markdown('''- **흐엉 씨가 아이스크림을 좋아합니다** - Hương thích kem''')
+    st.audio(root / "Files/Lesson3/vidu15.mp3", format="audio/mp3")
+
+
+    st.divider()
+
+    st.markdown(
+        "**3.**\n"
+        "- <span style='font-size: 20px; font-weight: bold;'> N + :red[에서]</span>"
+        "<span style='color: #555; font-size: 16px;'>: Tiểu từ chỉ trạng ngữ: gắn sau danh từ để biểu thị địa điểm xảy ra một hành động nào đó </span>.\n"
+        "- <span style='font-size: 20px; font-weight: bold;'> N + :blue[에]</span>"
+        "<span style='color: #555; font-size: 16px;'>: chỉ thêm :blue[에] sau danh từ chỉ nơi chốn đối với các động từ: **가다, 오다, 있다, 없다, 다니다** </span>.",
+        # "<span style='font-family: Courier; background-color: #f0f2f6; padding: 2px 6px;'>: là cái gì</span>.", 
+        unsafe_allow_html=True
+    )
+    st.markdown('''**Ví dụ:**''')   
+    st.markdown('''- **학교에서 공부합니다** - Học ở trường học''')
+    st.audio(root / "Files/Lesson3/vidu16.mp3", format="audio/mp3")
+    st.markdown('''- **도서관에서 책을 읽습니다** - Đọc sách ở thư viện''')
+    st.audio(root / "Files/Lesson3/vidu17.mp3", format="audio/mp3")
+    st.markdown('''- **병원에서 일합니다** - Làm việc ở bệnh viện''')
+    st.audio(root / "Files/Lesson3/vidu18.mp3", format="audio/mp3")
+    st.markdown('''- **학교에 갑니다** - Đi đến trường học''')
+    st.audio(root / "Files/Lesson3/vidu19.mp3", format="audio/mp3")
+    st.markdown('''- **도서관에 옵니다** - Đến thư viện''')
+    st.audio(root / "Files/Lesson3/vidu20.mp3", format="audio/mp3")
+    st.markdown('''- **병원에 다닙니다** - Đi lại ở bệnh viện''')
+    st.audio(root / "Files/Lesson3/vidu21.mp3", format="audio/mp3")   
+    st.markdown('''- **가게에 있습니다** - Có ở cửa hàng''')
+    st.audio(root / "Files/Lesson3/vidu22.mp3", format="audio/mp3")
+
+    st.divider()
+    st.markdown('''**Ví dụ khác:**''')
+    st.markdown('''- **학교에서 친구를 만납니다** - Gặp bạn bè ở trường học''')
+    st.audio(root / "Files/Lesson3/vidu23.mp3", format="audio/mp3")
+    st.markdown('''- **도서관에서 음악을 듣습니다** - Nghe nhạc ở thư viện''')
+    st.audio(root / "Files/Lesson3/vidu24.mp3", format="audio/mp3")
+    st.markdown('''- **지금 무엇을 합니까?** - Bây giờ bạn đang làm gì vậy?''')
+    st.audio(root / "Files/Lesson3/vidu25.mp3", format="audio/mp3")
+    st.markdown('''- **지금 학교에서 공부합니다** - Bây giờ tôi đang học ở trường học''')
+    st.audio(root / "Files/Lesson3/vidu26.mp3", format="audio/mp3")
+    st.markdown('''- **지금 도서관에서 책을 읽습니다** - Bây giờ tôi đang đọc sách ở thư viện''')
+    st.audio(root / "Files/Lesson3/vidu27.mp3", format="audio/mp3")
+    st.markdown('''- **유진씨가 어디에서 무엇을 합니까?** - Yujin đang làm gì ở đâu vậy?''')
+    st.audio(root / "Files/Lesson3/vidu28.mp3", format="audio/mp3")   
+    st.markdown('''- **유진씨가 식당에서 친구를 만납니다** - Yujin gặp bạn bè ở nhà ăn''')
+    st.audio(root / "Files/Lesson3/vidu29.mp3", format="audio/mp3")
+    st.markdown('''- **유진씨가 공원에서 운동합니다** - Yujin tập thể dục ở công viên''')
+    st.audio(root / "Files/Lesson3/vidu30.mp3", format="audio/mp3")
+
+
+    st.divider()
+    st.markdown('''**Ví dụ hội thoại:**''')
+    st.markdown('''- 지금 어디에 있습니까? - Bây giờ bạn đang ở đâu vậy?''')
+    st.audio(root / "Files/Lesson3/vidu31.mp3", format="audio/mp3")
+    st.markdown('''- 지금 집에 있습니다 - Bây giờ tôi đang ở nhà''')
+    st.audio(root / "Files/Lesson3/vidu32.mp3", format="audio/mp3")
+    st.markdown('''- 집에서 무엇을 합니까? - Ở nhà bạn đang làm gì vậy?''')
+    st.audio(root / "Files/Lesson3/vidu33.mp3", format="audio/mp3")
+    st.markdown('''- 집에서 쉽니다 - Ở nhà tôi đang nghỉ ngơi''')
+    st.audio(root / "Files/Lesson3/vidu34.mp3", format="audio/mp3")
+    st.markdown('''- 집에서 무엇을 먹습니까? - Ở nhà bạn đang ăn gì vậy?''')
+    st.audio(root / "Files/Lesson3/vidu35.mp3", format="audio/mp3")
+    st.markdown('''- 집에서 밥을 먹습니다 - Ở nhà tôi đang ăn cơm''')
+    st.audio(root / "Files/Lesson3/vidu36.mp3", format="audio/mp3")
+    
+    st.divider()
+    st.markdown(''' - 민재씨, 오늘 무엇을 합니까? - Min-jae, hôm nay bạn sẽ làm gì vậy?''')
+    st.audio(root / "Files/Lesson3/vidu37.mp3", format="audio/mp3")
+    st.markdown('''- 오늘 시내에서 쇼핑합니다 - Hôm nay tôi sẽ đi mua sắm ở nội thành''')
+    st.audio(root / "Files/Lesson3/vidu38.mp3", format="audio/mp3")
+    st.markdown('''- 시내에서 무엇을 삽니까? - Ở nội thành bạn sẽ mua gì vậy?''')
+    st.audio(root / "Files/Lesson3/vidu39.mp3", format="audio/mp3")
+    st.markdown('''- 시내에서 구두를 삽니다 - Ở nội thành tôi sẽ mua giày''')
+    st.audio(root / "Files/Lesson3/vidu40.mp3", format="audio/mp3")
+    
+    st.divider()
+    st.markdown('''- 루이엔 씨, 오늘 무엇을 합니까? - Luyen, hôm nay bạn sẽ làm gì vậy?''')
+    st.audio(root / "Files/Lesson3/vidu42.mp3", format="audio/mp3")   
+    st.markdown('''- 공원에서 산책합니다.그리고 쇼핑합니다. - Tôi sẽ đi dạo ở công viên. Và đi mua sắm''')
+    st.audio(root / "Files/Lesson3/vidu43.mp3", format="audio/mp3")
+    st.markdown('''- 어디에서 쇼핑합니까? - Bạn sẽ đi mua sắm ở đâu vậy?''')
+    st.audio(root / "Files/Lesson3/vidu44.mp3", format="audio/mp3")
+    st.markdown('''- 시내 백화점에서 쇼핑합니다. 흐엉 씨는 오늘 무엇을 합니까? - Tôi sẽ đi mua sắm ở cửa TTTM ở nội thành. Hương, bạn sẽ làm gì vậy?''')
+    st.audio(root / "Files/Lesson3/vidu45.mp3", format="audio/mp3")
+    st.markdown('''- 트랑극장에서 영화를 봅니다 - Tôi sẽ xem phim ở rạp Trang''')
+    st.audio(root / "Files/Lesson3/vidu46.mp3", format="audio/mp3")
+    st.markdown('''- 흐엉 씨는 영화를 좋아합니까? - Hương thích xem phim hả?''')
+    st.audio(root / "Files/Lesson3/vidu47.mp3", format="audio/mp3")
+    st.markdown('''- 네, 아주 좋아합니다. - Vâng, tôi rất thích''')
+    st.audio(root / "Files/Lesson3/vidu48.mp3", format="audio/mp3")
+    
+
+    
+    
+
+
+
+
     # col1, col2 = st.columns([2,1])
     # with col1:
         
